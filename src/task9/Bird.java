@@ -10,30 +10,34 @@ public class Bird extends Animal {
         this.maxFlight = maxFlight;
     }
 
-    Bird sparrow = new Bird("Sparrow", 10, "red", 10, FoodType.INSECTS);
-
 
     public void sing() {
-        System.out.println(family + " is singing");
+        System.out.println(family + " поет");
     }
 
     public void peck() {
-        System.out.println(family + "pecking");
+        System.out.println(family + " клюет");
     }
 
     public void layEggs() {
-        System.out.println(family + "laying eggs");
+        System.out.println(family + " высижывает яйца");
     }
 
     @Override
     public void makeSound() {
-        System.out.println(family + "singing");
+        System.out.println(family + " поет <3");
     }
 
     @Override
     public void play() {
-        System.out.println(family + " is playing");
+        System.out.println(family + " играет");
     }
+
+    @Override
+    public String toString() {
+        return "Птица: " + family + ", цвет: " + color + ", живет: " + lifetime + " лет.";
+    }
+
 
 }
 

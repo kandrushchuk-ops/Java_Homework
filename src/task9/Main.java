@@ -1,9 +1,49 @@
 package task9;
 
 public class Main {
+    public static void main(String[] args) {
+
+        System.out.println("=== ДЕМОНСТРАЦИЯ ОТДЕЛЬНЫХ ЖИВОТНЫХ ===");
+        Bird myBird = new Bird("Воробей", 10, "красный", 10, FoodType.НАСЕКОМЫЕ);
+        Dog myDog = new Dog("Шарик", "Пудель", 30, "Белый", 10, FoodType.МЯСО);
+        Animal myAnimal = new Animal("Жёлтый", 100, FoodType.РАСТЕНИЯ);
+
+        myBird.makeSound();
+        myDog.makeSound();
+
+        System.out.println(myBird);
+        System.out.println(myDog);
+        System.out.println(myAnimal);
+        System.out.println();
 
 
+        System.out.println("=== РАБОТА С ЗООПАРКОМ ===");
+        Zoo zoo = new Zoo();
+
+
+        zoo.addAnimal(new Bird("Чик", 15, "серый", 2, FoodType.НАСЕКОМЫЕ));
+        zoo.addAnimal(new Bird("Чирик", 12, "коричневый", 3, FoodType.НАСЕКОМЫЕ));
+        zoo.addAnimal(new Bird("Каркуша", 20, "чёрный", 5, FoodType.НАСЕКОМЫЕ));
+
+
+        zoo.addAnimal(new Dog("Бобик", "Дворняга", 20, "рыжий", 4, FoodType.МЯСО));
+        zoo.addAnimal(new Dog("Шарик", "Пудель", 30, "белый", 6, FoodType.МЯСО));
+        zoo.addAnimal(new Dog("Тузик", "Овчарка", 40, "чёрный", 8, FoodType.МЯСО));
+
+
+        Animal[] allAnimals = zoo.getAnimals();
+
+
+        System.out.println("\n=== ЗВУКИ И ИГРЫ ЖИВОТНЫХ В ЗООПАРКЕ ===");
+        for (Animal animal : allAnimals) {
+
+            animal.makeSound();
+            animal.play();
+            System.out.println("---");
+        }
+    }
 }
+
 
 //1.Создать классы: Животное, Собака, Птица. Поля в классе животное: окрас, максимальная продолжительность жизни, тип еды
 // которой питаются (мясо, насекомые, растения).Определить методы в классе животное: (издание звуков, животное играет)

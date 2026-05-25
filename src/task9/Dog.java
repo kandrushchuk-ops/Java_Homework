@@ -5,8 +5,8 @@ public class Dog extends Animal {
     String breed;
     int weight;
 
-    public Dog(String name, String breed, int weight, String color, int maxLife, String foodType) {
-        super(color, maxLife, FoodType.MEAT);
+    public Dog(String name, String breed, int weight, String color, int lifetime, FoodType foodType) {
+        super(color, lifetime, foodType);
         this.name = name;
         this.breed = breed;
         this.weight = weight;
@@ -18,20 +18,28 @@ public class Dog extends Animal {
     }
 
     public void bite() {
-        System.out.println(name + " bites");
+        System.out.println(name + " кусает");
     }
 
     public void run() {
-        System.out.println(name + " runs");
+        System.out.println(name + " бежит");
     }
+
     @Override
     public void play() {
-        System.out.println(name + " plays");
+        System.out.println(name + " играет");
     }
+
     @Override
     public void makeSound() {
-        System.out.println(name + "Гав-Гав!");
+        System.out.println(name + " гавкает!");
     }
+
+    @Override
+    public String toString() {
+        return "Собака: " + name + ", Порода:" + breed + ", Вес:" + weight + ", Цвет:" + color + ", Время жизни:" + lifetime + ", Еда:" + foodType + '}';
+    }
+
 }
 
 //В классе Собака реализовать методы: лаять, кусать, бегать, играть,

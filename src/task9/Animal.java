@@ -19,6 +19,12 @@ public class Animal {
         System.out.println("Animal play");
     }
 
+    @Override
+    public String toString() {
+        return "Животное с цвет: " + color + ", Жизнь: " + lifetime + ", Еда: " + foodType;
+    }
+
+
 
 }
 //окрас, максимальная продолжительность жизни, тип еды
