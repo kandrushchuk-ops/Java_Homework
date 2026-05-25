@@ -1,3 +1,5 @@
+package by.homework.lesson1;
+
 public class Task_2_6 {
     public static void main(String[] args) {
         int a = 35;
