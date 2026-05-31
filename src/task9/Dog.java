@@ -1,5 +1,7 @@
 package task9;
 
+import java.util.Objects;
+
 public class Dog extends Animal {
     String name;
     String breed;
@@ -39,6 +41,25 @@ public class Dog extends Animal {
     public String toString() {
         return "Собака: " + name + ", Порода:" + breed + ", Вес:" + weight + ", Цвет:" + color + ", Время жизни:" + lifetime + ", Еда:" + foodType + '}';
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Dog dog = (Dog) o;
+        return weight == dog.weight &&
+                Objects.equals(name, dog.name) &&
+                Objects.equals(breed, dog.breed) &&
+                Objects.equals(color, dog.color) &&
+                Objects.equals(foodType, dog.foodType) &&
+                lifetime == dog.lifetime;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, breed, weight, color, lifetime, foodType);
+    }
+
 
 }
 
