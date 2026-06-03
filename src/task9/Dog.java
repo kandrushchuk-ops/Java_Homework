@@ -14,7 +14,6 @@ public class Dog extends Animal {
         this.weight = weight;
     }
 
-
     public void bark() {
         System.out.println(name + " barks");
     }
@@ -47,22 +46,24 @@ public class Dog extends Animal {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Dog dog = (Dog) o;
-        return weight == dog.weight &&
-                Objects.equals(name, dog.name) &&
-                Objects.equals(breed, dog.breed) &&
-                Objects.equals(color, dog.color) &&
-                Objects.equals(foodType, dog.foodType) &&
-                lifetime == dog.lifetime;
+
+        if (name == null) {
+            if (dog.name != null) return false;
+        } else if (!name.equals(dog.name)) {
+            return false;
+        }
+
+        if (breed == null) {
+            if (dog.breed != null) return false;
+        } else if (!breed.equals(dog.breed)) {
+            return false;
+        }
+
+        return true;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(name, breed, weight, color, lifetime, foodType);
+        return Objects.hash(name, breed);
     }
-
-
 }
-
-//В классе Собака реализовать методы: лаять, кусать, бегать, играть,
-// прыгать. При этом, в консоли должны выводится имя собаки вместе с описанием действия (пример. Рекс прыгает).
-//В классе собака определить имя, порода, средний вес. В классе Собака реализовать методы: лаять, кусать, бегать, играть, прыгать.
