@@ -1,5 +1,7 @@
 package task9;
 
+import java.util.Objects;
+
 public class Dog extends Animal {
     String name;
     String breed;
@@ -11,7 +13,6 @@ public class Dog extends Animal {
         this.breed = breed;
         this.weight = weight;
     }
-
 
     public void bark() {
         System.out.println(name + " barks");
@@ -40,8 +41,29 @@ public class Dog extends Animal {
         return "Собака: " + name + ", Порода:" + breed + ", Вес:" + weight + ", Цвет:" + color + ", Время жизни:" + lifetime + ", Еда:" + foodType + '}';
     }
 
-}
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Dog dog = (Dog) o;
 
-//В классе Собака реализовать методы: лаять, кусать, бегать, играть,
-// прыгать. При этом, в консоли должны выводится имя собаки вместе с описанием действия (пример. Рекс прыгает).
-//В классе собака определить имя, порода, средний вес. В классе Собака реализовать методы: лаять, кусать, бегать, играть, прыгать.
+        if (name == null) {
+            if (dog.name != null) return false;
+        } else if (!name.equals(dog.name)) {
+            return false;
+        }
+
+        if (breed == null) {
+            if (dog.breed != null) return false;
+        } else if (!breed.equals(dog.breed)) {
+            return false;
+        }
+
+        return true;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, breed);
+    }
+}

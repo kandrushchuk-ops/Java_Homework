@@ -1,5 +1,7 @@
 package task9;
 
+import java.util.Objects;
+
 public class Bird extends Animal {
     String family;
     int maxFlight;
@@ -39,6 +41,22 @@ public class Bird extends Animal {
     }
 
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Bird bird = (Bird) o;
+        return maxFlight == bird.maxFlight &&
+                Objects.equals(family, bird.family) &&
+                Objects.equals(color, bird.color) &&
+                Objects.equals(foodType, bird.foodType) &&
+                lifetime == bird.lifetime;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(family, maxFlight, color, lifetime, foodType);
+}
 }
 
 
